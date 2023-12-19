@@ -598,6 +598,9 @@ model NicovideoVideoSource {
 
   isOriginal Boolean @default(true) // 転載などのケースでは`false`
 
+  account   NicovideoAccount? @relation(fields: [accountId], references: [id])
+  accountId String?
+
   @@unique([sourceId, videoId])
 }
 
@@ -1220,4 +1223,18 @@ model NicovideoNewVideo {
   updatedAt DateTime @updatedAt
 
   checked Boolean @default(false)
+}
+
+// ニコニコ動画上でのアカウント
+model NicovideoAccount {
+  id String @id @default(cuid())
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accountId String @unique
+
+  sources NicovideoVideoSource[]
+
+  name String
 }
