@@ -15,7 +15,7 @@ RUN chmod +x /bin/tini
 COPY ./package.json ./package-lock.json ./
 RUN npm ci --ignore-scripts
 
-COPY ./prisma ./prisma
+COPY . .
 
 ENTRYPOINT ["tini", "--"]
 CMD ["./node_modules/.bin/prisma", "migrate", "deploy"]
