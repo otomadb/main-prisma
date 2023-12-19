@@ -407,7 +407,9 @@ enum VideoEventType {
 model VideoTitle {
   id String @id
 
-  title     String
+  title  String
+  locale String @default("ja-JP")
+
   isPrimary Boolean
 
   createdAt DateTime @default(now())
