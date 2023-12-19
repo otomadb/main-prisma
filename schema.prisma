@@ -1208,3 +1208,16 @@ enum AbstractGroupingEventType {
   EXCLUDE // 排斥したとき
   REINCLUDE // 再度入れたとき
 }
+
+// ニコニコ動画の新作
+model NicovideoNewVideo {
+  id String @id @default(cuid())
+
+  sourceId     String   @unique /// ニコニコ動画側のID
+  registeredAt DateTime /// ニコニコ動画側の公開日時
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  checked Boolean @default(false)
+}
