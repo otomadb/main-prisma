@@ -1235,4 +1235,6 @@ model NicovideoAccount {
   accountId String @unique
 
   sources NicovideoVideoSource[]
+
+  name String
 }
