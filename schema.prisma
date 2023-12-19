@@ -405,7 +405,7 @@ enum VideoEventType {
 }
 
 model VideoTitle {
-  id String @id
+  id String @id @default(cuid())
 
   title  String
   locale String @default("ja-JP")
